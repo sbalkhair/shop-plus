@@ -9,54 +9,619 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as authRouteRouteImport } from './routes/(auth)/route'
+import { Route as mainRouteRouteImport } from './routes/(main)/route'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
+import { Route as DeliveryRouteRouteImport } from './routes/delivery/route'
+import { Route as mainIndexRouteImport } from './routes/(main)/index'
+import { Route as mainprotectedRouteRouteImport } from './routes/(main)/(protected)/route'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as ApiUploadthingRouteImport } from './routes/api/uploadthing'
+import { Route as DeliveryIndexRouteImport } from './routes/delivery/index'
+import { Route as DeliveryOrderIdRouteImport } from './routes/delivery/$orderId'
+import { Route as authLoginIndexRouteImport } from './routes/(auth)/login/index'
+import { Route as authSignupIndexRouteImport } from './routes/(auth)/signup/index'
+import { Route as mainDealsIndexRouteImport } from './routes/(main)/deals/index'
+import { Route as mainProductsIndexRouteImport } from './routes/(main)/products/index'
+import { Route as mainSearchResultIndexRouteImport } from './routes/(main)/search-result/index'
+import { Route as AdminCategoriesIndexRouteImport } from './routes/admin/categories/index'
+import { Route as AdminCategoriesNewRouteImport } from './routes/admin/categories/new'
+import { Route as AdminDeliveryPartnersIndexRouteImport } from './routes/admin/delivery-partners/index'
+import { Route as AdminDeliveryPartnersNewRouteImport } from './routes/admin/delivery-partners/new'
+import { Route as AdminOrdersIndexRouteImport } from './routes/admin/orders/index'
+import { Route as AdminOrdersOrderIdRouteImport } from './routes/admin/orders/$orderId'
+import { Route as AdminProductsIndexRouteImport } from './routes/admin/products/index'
+import { Route as AdminProductsNewRouteImport } from './routes/admin/products/new'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ApiWebhooksMoyasarRouteImport } from './routes/api/webhooks/moyasar'
+import { Route as mainprotectedAddressesIndexRouteImport } from './routes/(main)/(protected)/addresses/index'
+import { Route as mainprotectedCheckoutIndexRouteImport } from './routes/(main)/(protected)/checkout/index'
+import { Route as mainprotectedOrderTrackingIndexRouteImport } from './routes/(main)/(protected)/order-tracking/index'
+import { Route as mainprotectedOrderTrackingOrderIdRouteImport } from './routes/(main)/(protected)/order-tracking/$orderId'
+import { Route as mainprotectedOrdersIndexRouteImport } from './routes/(main)/(protected)/orders/index'
+import { Route as mainprotectedPaymentResultIndexRouteImport } from './routes/(main)/(protected)/payment-result/index'
+import { Route as mainprotectedPaymentOrderIdRouteImport } from './routes/(main)/(protected)/payment/$orderId'
+import { Route as mainProductsIdIndexRouteImport } from './routes/(main)/products/$id/index'
+import { Route as AdminCategoriesIdEditRouteImport } from './routes/admin/categories/$id/edit'
+import { Route as AdminDeliveryPartnersIdEditRouteImport } from './routes/admin/delivery-partners/$id/edit'
+import { Route as AdminProductsIdEditRouteImport } from './routes/admin/products/$id/edit'
 
-const IndexRoute = IndexRouteImport.update({
+const authRouteRoute = authRouteRouteImport.update({
+  id: '/(auth)',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const mainRouteRoute = mainRouteRouteImport.update({
+  id: '/(main)',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeliveryRouteRoute = DeliveryRouteRouteImport.update({
+  id: '/delivery',
+  path: '/delivery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const mainIndexRoute = mainIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainprotectedRouteRoute = mainprotectedRouteRouteImport.update({
+  id: '/(protected)',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const ApiUploadthingRoute = ApiUploadthingRouteImport.update({
+  id: '/api/uploadthing',
+  path: '/api/uploadthing',
   getParentRoute: () => rootRouteImport,
+} as any)
+const DeliveryIndexRoute = DeliveryIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DeliveryRouteRoute,
+} as any)
+const DeliveryOrderIdRoute = DeliveryOrderIdRouteImport.update({
+  id: '/$orderId',
+  path: '/$orderId',
+  getParentRoute: () => DeliveryRouteRoute,
+} as any)
+const authLoginIndexRoute = authLoginIndexRouteImport.update({
+  id: '/login/',
+  path: '/login/',
+  getParentRoute: () => authRouteRoute,
+} as any)
+const authSignupIndexRoute = authSignupIndexRouteImport.update({
+  id: '/signup/',
+  path: '/signup/',
+  getParentRoute: () => authRouteRoute,
+} as any)
+const mainDealsIndexRoute = mainDealsIndexRouteImport.update({
+  id: '/deals/',
+  path: '/deals/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainProductsIndexRoute = mainProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const mainSearchResultIndexRoute = mainSearchResultIndexRouteImport.update({
+  id: '/search-result/',
+  path: '/search-result/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const AdminCategoriesIndexRoute = AdminCategoriesIndexRouteImport.update({
+  id: '/categories/',
+  path: '/categories/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminCategoriesNewRoute = AdminCategoriesNewRouteImport.update({
+  id: '/categories/new',
+  path: '/categories/new',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminDeliveryPartnersIndexRoute =
+  AdminDeliveryPartnersIndexRouteImport.update({
+    id: '/delivery-partners/',
+    path: '/delivery-partners/',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdminDeliveryPartnersNewRoute =
+  AdminDeliveryPartnersNewRouteImport.update({
+    id: '/delivery-partners/new',
+    path: '/delivery-partners/new',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdminOrdersIndexRoute = AdminOrdersIndexRouteImport.update({
+  id: '/orders/',
+  path: '/orders/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminOrdersOrderIdRoute = AdminOrdersOrderIdRouteImport.update({
+  id: '/orders/$orderId',
+  path: '/orders/$orderId',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminProductsIndexRoute = AdminProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminProductsNewRoute = AdminProductsNewRouteImport.update({
+  id: '/products/new',
+  path: '/products/new',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiWebhooksMoyasarRoute = ApiWebhooksMoyasarRouteImport.update({
+  id: '/api/webhooks/moyasar',
+  path: '/api/webhooks/moyasar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const mainprotectedAddressesIndexRoute =
+  mainprotectedAddressesIndexRouteImport.update({
+    id: '/addresses/',
+    path: '/addresses/',
+    getParentRoute: () => mainprotectedRouteRoute,
+  } as any)
+const mainprotectedCheckoutIndexRoute =
+  mainprotectedCheckoutIndexRouteImport.update({
+    id: '/checkout/',
+    path: '/checkout/',
+    getParentRoute: () => mainprotectedRouteRoute,
+  } as any)
+const mainprotectedOrderTrackingIndexRoute =
+  mainprotectedOrderTrackingIndexRouteImport.update({
+    id: '/order-tracking/',
+    path: '/order-tracking/',
+    getParentRoute: () => mainprotectedRouteRoute,
+  } as any)
+const mainprotectedOrderTrackingOrderIdRoute =
+  mainprotectedOrderTrackingOrderIdRouteImport.update({
+    id: '/order-tracking/$orderId',
+    path: '/order-tracking/$orderId',
+    getParentRoute: () => mainprotectedRouteRoute,
+  } as any)
+const mainprotectedOrdersIndexRoute =
+  mainprotectedOrdersIndexRouteImport.update({
+    id: '/orders/',
+    path: '/orders/',
+    getParentRoute: () => mainprotectedRouteRoute,
+  } as any)
+const mainprotectedPaymentResultIndexRoute =
+  mainprotectedPaymentResultIndexRouteImport.update({
+    id: '/payment-result/',
+    path: '/payment-result/',
+    getParentRoute: () => mainprotectedRouteRoute,
+  } as any)
+const mainprotectedPaymentOrderIdRoute =
+  mainprotectedPaymentOrderIdRouteImport.update({
+    id: '/payment/$orderId',
+    path: '/payment/$orderId',
+    getParentRoute: () => mainprotectedRouteRoute,
+  } as any)
+const mainProductsIdIndexRoute = mainProductsIdIndexRouteImport.update({
+  id: '/products/$id/',
+  path: '/products/$id/',
+  getParentRoute: () => mainRouteRoute,
+} as any)
+const AdminCategoriesIdEditRoute = AdminCategoriesIdEditRouteImport.update({
+  id: '/categories/$id/edit',
+  path: '/categories/$id/edit',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminDeliveryPartnersIdEditRoute =
+  AdminDeliveryPartnersIdEditRouteImport.update({
+    id: '/delivery-partners/$id/edit',
+    path: '/delivery-partners/$id/edit',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdminProductsIdEditRoute = AdminProductsIdEditRouteImport.update({
+  id: '/products/$id/edit',
+  path: '/products/$id/edit',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/delivery': typeof DeliveryRouteRouteWithChildren
+  '/api/uploadthing': typeof ApiUploadthingRoute
+  '/delivery/$orderId': typeof DeliveryOrderIdRoute
+  '/': typeof mainIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/delivery/': typeof DeliveryIndexRoute
+  '/admin/categories/new': typeof AdminCategoriesNewRoute
+  '/admin/delivery-partners/new': typeof AdminDeliveryPartnersNewRoute
+  '/admin/orders/$orderId': typeof AdminOrdersOrderIdRoute
+  '/admin/products/new': typeof AdminProductsNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/webhooks/moyasar': typeof ApiWebhooksMoyasarRoute
+  '/login/': typeof authLoginIndexRoute
+  '/signup/': typeof authSignupIndexRoute
+  '/deals/': typeof mainDealsIndexRoute
+  '/products/': typeof mainProductsIndexRoute
+  '/search-result/': typeof mainSearchResultIndexRoute
+  '/admin/categories/': typeof AdminCategoriesIndexRoute
+  '/admin/delivery-partners/': typeof AdminDeliveryPartnersIndexRoute
+  '/admin/orders/': typeof AdminOrdersIndexRoute
+  '/admin/products/': typeof AdminProductsIndexRoute
+  '/order-tracking/$orderId': typeof mainprotectedOrderTrackingOrderIdRoute
+  '/payment/$orderId': typeof mainprotectedPaymentOrderIdRoute
+  '/admin/categories/$id/edit': typeof AdminCategoriesIdEditRoute
+  '/admin/delivery-partners/$id/edit': typeof AdminDeliveryPartnersIdEditRoute
+  '/admin/products/$id/edit': typeof AdminProductsIdEditRoute
+  '/addresses/': typeof mainprotectedAddressesIndexRoute
+  '/checkout/': typeof mainprotectedCheckoutIndexRoute
+  '/order-tracking/': typeof mainprotectedOrderTrackingIndexRoute
+  '/orders/': typeof mainprotectedOrdersIndexRoute
+  '/payment-result/': typeof mainprotectedPaymentResultIndexRoute
+  '/products/$id/': typeof mainProductsIdIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/api/uploadthing': typeof ApiUploadthingRoute
+  '/delivery/$orderId': typeof DeliveryOrderIdRoute
+  '/': typeof mainIndexRoute
+  '/admin': typeof AdminIndexRoute
+  '/delivery': typeof DeliveryIndexRoute
+  '/admin/categories/new': typeof AdminCategoriesNewRoute
+  '/admin/delivery-partners/new': typeof AdminDeliveryPartnersNewRoute
+  '/admin/orders/$orderId': typeof AdminOrdersOrderIdRoute
+  '/admin/products/new': typeof AdminProductsNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/webhooks/moyasar': typeof ApiWebhooksMoyasarRoute
+  '/login': typeof authLoginIndexRoute
+  '/signup': typeof authSignupIndexRoute
+  '/deals': typeof mainDealsIndexRoute
+  '/products': typeof mainProductsIndexRoute
+  '/search-result': typeof mainSearchResultIndexRoute
+  '/admin/categories': typeof AdminCategoriesIndexRoute
+  '/admin/delivery-partners': typeof AdminDeliveryPartnersIndexRoute
+  '/admin/orders': typeof AdminOrdersIndexRoute
+  '/admin/products': typeof AdminProductsIndexRoute
+  '/order-tracking/$orderId': typeof mainprotectedOrderTrackingOrderIdRoute
+  '/payment/$orderId': typeof mainprotectedPaymentOrderIdRoute
+  '/admin/categories/$id/edit': typeof AdminCategoriesIdEditRoute
+  '/admin/delivery-partners/$id/edit': typeof AdminDeliveryPartnersIdEditRoute
+  '/admin/products/$id/edit': typeof AdminProductsIdEditRoute
+  '/addresses': typeof mainprotectedAddressesIndexRoute
+  '/checkout': typeof mainprotectedCheckoutIndexRoute
+  '/order-tracking': typeof mainprotectedOrderTrackingIndexRoute
+  '/orders': typeof mainprotectedOrdersIndexRoute
+  '/payment-result': typeof mainprotectedPaymentResultIndexRoute
+  '/products/$id': typeof mainProductsIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/(auth)': typeof authRouteRouteWithChildren
+  '/(main)': typeof mainRouteRouteWithChildren
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/delivery': typeof DeliveryRouteRouteWithChildren
+  '/(main)/(protected)': typeof mainprotectedRouteRouteWithChildren
+  '/api/uploadthing': typeof ApiUploadthingRoute
+  '/delivery/$orderId': typeof DeliveryOrderIdRoute
+  '/(main)/': typeof mainIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/delivery/': typeof DeliveryIndexRoute
+  '/admin/categories/new': typeof AdminCategoriesNewRoute
+  '/admin/delivery-partners/new': typeof AdminDeliveryPartnersNewRoute
+  '/admin/orders/$orderId': typeof AdminOrdersOrderIdRoute
+  '/admin/products/new': typeof AdminProductsNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/webhooks/moyasar': typeof ApiWebhooksMoyasarRoute
+  '/(auth)/login/': typeof authLoginIndexRoute
+  '/(auth)/signup/': typeof authSignupIndexRoute
+  '/(main)/deals/': typeof mainDealsIndexRoute
+  '/(main)/products/': typeof mainProductsIndexRoute
+  '/(main)/search-result/': typeof mainSearchResultIndexRoute
+  '/admin/categories/': typeof AdminCategoriesIndexRoute
+  '/admin/delivery-partners/': typeof AdminDeliveryPartnersIndexRoute
+  '/admin/orders/': typeof AdminOrdersIndexRoute
+  '/admin/products/': typeof AdminProductsIndexRoute
+  '/(main)/(protected)/order-tracking/$orderId': typeof mainprotectedOrderTrackingOrderIdRoute
+  '/(main)/(protected)/payment/$orderId': typeof mainprotectedPaymentOrderIdRoute
+  '/admin/categories/$id/edit': typeof AdminCategoriesIdEditRoute
+  '/admin/delivery-partners/$id/edit': typeof AdminDeliveryPartnersIdEditRoute
+  '/admin/products/$id/edit': typeof AdminProductsIdEditRoute
+  '/(main)/(protected)/addresses/': typeof mainprotectedAddressesIndexRoute
+  '/(main)/(protected)/checkout/': typeof mainprotectedCheckoutIndexRoute
+  '/(main)/(protected)/order-tracking/': typeof mainprotectedOrderTrackingIndexRoute
+  '/(main)/(protected)/orders/': typeof mainprotectedOrdersIndexRoute
+  '/(main)/(protected)/payment-result/': typeof mainprotectedPaymentResultIndexRoute
+  '/(main)/products/$id/': typeof mainProductsIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/auth/$'
+  fullPaths:
+    | '/admin'
+    | '/delivery'
+    | '/api/uploadthing'
+    | '/delivery/$orderId'
+    | '/'
+    | '/admin/'
+    | '/delivery/'
+    | '/admin/categories/new'
+    | '/admin/delivery-partners/new'
+    | '/admin/orders/$orderId'
+    | '/admin/products/new'
+    | '/api/auth/$'
+    | '/api/webhooks/moyasar'
+    | '/login/'
+    | '/signup/'
+    | '/deals/'
+    | '/products/'
+    | '/search-result/'
+    | '/admin/categories/'
+    | '/admin/delivery-partners/'
+    | '/admin/orders/'
+    | '/admin/products/'
+    | '/order-tracking/$orderId'
+    | '/payment/$orderId'
+    | '/admin/categories/$id/edit'
+    | '/admin/delivery-partners/$id/edit'
+    | '/admin/products/$id/edit'
+    | '/addresses/'
+    | '/checkout/'
+    | '/order-tracking/'
+    | '/orders/'
+    | '/payment-result/'
+    | '/products/$id/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/auth/$'
-  id: '__root__' | '/' | '/api/auth/$'
+  to:
+    | '/api/uploadthing'
+    | '/delivery/$orderId'
+    | '/'
+    | '/admin'
+    | '/delivery'
+    | '/admin/categories/new'
+    | '/admin/delivery-partners/new'
+    | '/admin/orders/$orderId'
+    | '/admin/products/new'
+    | '/api/auth/$'
+    | '/api/webhooks/moyasar'
+    | '/login'
+    | '/signup'
+    | '/deals'
+    | '/products'
+    | '/search-result'
+    | '/admin/categories'
+    | '/admin/delivery-partners'
+    | '/admin/orders'
+    | '/admin/products'
+    | '/order-tracking/$orderId'
+    | '/payment/$orderId'
+    | '/admin/categories/$id/edit'
+    | '/admin/delivery-partners/$id/edit'
+    | '/admin/products/$id/edit'
+    | '/addresses'
+    | '/checkout'
+    | '/order-tracking'
+    | '/orders'
+    | '/payment-result'
+    | '/products/$id'
+  id:
+    | '__root__'
+    | '/(auth)'
+    | '/(main)'
+    | '/admin'
+    | '/delivery'
+    | '/(main)/(protected)'
+    | '/api/uploadthing'
+    | '/delivery/$orderId'
+    | '/(main)/'
+    | '/admin/'
+    | '/delivery/'
+    | '/admin/categories/new'
+    | '/admin/delivery-partners/new'
+    | '/admin/orders/$orderId'
+    | '/admin/products/new'
+    | '/api/auth/$'
+    | '/api/webhooks/moyasar'
+    | '/(auth)/login/'
+    | '/(auth)/signup/'
+    | '/(main)/deals/'
+    | '/(main)/products/'
+    | '/(main)/search-result/'
+    | '/admin/categories/'
+    | '/admin/delivery-partners/'
+    | '/admin/orders/'
+    | '/admin/products/'
+    | '/(main)/(protected)/order-tracking/$orderId'
+    | '/(main)/(protected)/payment/$orderId'
+    | '/admin/categories/$id/edit'
+    | '/admin/delivery-partners/$id/edit'
+    | '/admin/products/$id/edit'
+    | '/(main)/(protected)/addresses/'
+    | '/(main)/(protected)/checkout/'
+    | '/(main)/(protected)/order-tracking/'
+    | '/(main)/(protected)/orders/'
+    | '/(main)/(protected)/payment-result/'
+    | '/(main)/products/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  authRouteRoute: typeof authRouteRouteWithChildren
+  mainRouteRoute: typeof mainRouteRouteWithChildren
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
+  DeliveryRouteRoute: typeof DeliveryRouteRouteWithChildren
+  ApiUploadthingRoute: typeof ApiUploadthingRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiWebhooksMoyasarRoute: typeof ApiWebhooksMoyasarRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/(auth)': {
+      id: '/(auth)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof authRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(main)': {
+      id: '/(main)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof mainRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/delivery': {
+      id: '/delivery'
+      path: '/delivery'
+      fullPath: '/delivery'
+      preLoaderRoute: typeof DeliveryRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(main)/': {
+      id: '/(main)/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof mainIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/(protected)': {
+      id: '/(main)/(protected)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof mainprotectedRouteRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/api/uploadthing': {
+      id: '/api/uploadthing'
+      path: '/api/uploadthing'
+      fullPath: '/api/uploadthing'
+      preLoaderRoute: typeof ApiUploadthingRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/delivery/': {
+      id: '/delivery/'
+      path: '/'
+      fullPath: '/delivery/'
+      preLoaderRoute: typeof DeliveryIndexRouteImport
+      parentRoute: typeof DeliveryRouteRoute
+    }
+    '/delivery/$orderId': {
+      id: '/delivery/$orderId'
+      path: '/$orderId'
+      fullPath: '/delivery/$orderId'
+      preLoaderRoute: typeof DeliveryOrderIdRouteImport
+      parentRoute: typeof DeliveryRouteRoute
+    }
+    '/(auth)/login/': {
+      id: '/(auth)/login/'
+      path: '/login'
+      fullPath: '/login/'
+      preLoaderRoute: typeof authLoginIndexRouteImport
+      parentRoute: typeof authRouteRoute
+    }
+    '/(auth)/signup/': {
+      id: '/(auth)/signup/'
+      path: '/signup'
+      fullPath: '/signup/'
+      preLoaderRoute: typeof authSignupIndexRouteImport
+      parentRoute: typeof authRouteRoute
+    }
+    '/(main)/deals/': {
+      id: '/(main)/deals/'
+      path: '/deals'
+      fullPath: '/deals/'
+      preLoaderRoute: typeof mainDealsIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/products/': {
+      id: '/(main)/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof mainProductsIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/(main)/search-result/': {
+      id: '/(main)/search-result/'
+      path: '/search-result'
+      fullPath: '/search-result/'
+      preLoaderRoute: typeof mainSearchResultIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/admin/categories/': {
+      id: '/admin/categories/'
+      path: '/categories'
+      fullPath: '/admin/categories/'
+      preLoaderRoute: typeof AdminCategoriesIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/categories/new': {
+      id: '/admin/categories/new'
+      path: '/categories/new'
+      fullPath: '/admin/categories/new'
+      preLoaderRoute: typeof AdminCategoriesNewRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/delivery-partners/': {
+      id: '/admin/delivery-partners/'
+      path: '/delivery-partners'
+      fullPath: '/admin/delivery-partners/'
+      preLoaderRoute: typeof AdminDeliveryPartnersIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/delivery-partners/new': {
+      id: '/admin/delivery-partners/new'
+      path: '/delivery-partners/new'
+      fullPath: '/admin/delivery-partners/new'
+      preLoaderRoute: typeof AdminDeliveryPartnersNewRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/orders/': {
+      id: '/admin/orders/'
+      path: '/orders'
+      fullPath: '/admin/orders/'
+      preLoaderRoute: typeof AdminOrdersIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/orders/$orderId': {
+      id: '/admin/orders/$orderId'
+      path: '/orders/$orderId'
+      fullPath: '/admin/orders/$orderId'
+      preLoaderRoute: typeof AdminOrdersOrderIdRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/products/': {
+      id: '/admin/products/'
+      path: '/products'
+      fullPath: '/admin/products/'
+      preLoaderRoute: typeof AdminProductsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/products/new': {
+      id: '/admin/products/new'
+      path: '/products/new'
+      fullPath: '/admin/products/new'
+      preLoaderRoute: typeof AdminProductsNewRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/api/auth/$': {
       id: '/api/auth/$'
@@ -65,12 +630,209 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/webhooks/moyasar': {
+      id: '/api/webhooks/moyasar'
+      path: '/api/webhooks/moyasar'
+      fullPath: '/api/webhooks/moyasar'
+      preLoaderRoute: typeof ApiWebhooksMoyasarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(main)/(protected)/addresses/': {
+      id: '/(main)/(protected)/addresses/'
+      path: '/addresses'
+      fullPath: '/addresses/'
+      preLoaderRoute: typeof mainprotectedAddressesIndexRouteImport
+      parentRoute: typeof mainprotectedRouteRoute
+    }
+    '/(main)/(protected)/checkout/': {
+      id: '/(main)/(protected)/checkout/'
+      path: '/checkout'
+      fullPath: '/checkout/'
+      preLoaderRoute: typeof mainprotectedCheckoutIndexRouteImport
+      parentRoute: typeof mainprotectedRouteRoute
+    }
+    '/(main)/(protected)/order-tracking/': {
+      id: '/(main)/(protected)/order-tracking/'
+      path: '/order-tracking'
+      fullPath: '/order-tracking/'
+      preLoaderRoute: typeof mainprotectedOrderTrackingIndexRouteImport
+      parentRoute: typeof mainprotectedRouteRoute
+    }
+    '/(main)/(protected)/order-tracking/$orderId': {
+      id: '/(main)/(protected)/order-tracking/$orderId'
+      path: '/order-tracking/$orderId'
+      fullPath: '/order-tracking/$orderId'
+      preLoaderRoute: typeof mainprotectedOrderTrackingOrderIdRouteImport
+      parentRoute: typeof mainprotectedRouteRoute
+    }
+    '/(main)/(protected)/orders/': {
+      id: '/(main)/(protected)/orders/'
+      path: '/orders'
+      fullPath: '/orders/'
+      preLoaderRoute: typeof mainprotectedOrdersIndexRouteImport
+      parentRoute: typeof mainprotectedRouteRoute
+    }
+    '/(main)/(protected)/payment-result/': {
+      id: '/(main)/(protected)/payment-result/'
+      path: '/payment-result'
+      fullPath: '/payment-result/'
+      preLoaderRoute: typeof mainprotectedPaymentResultIndexRouteImport
+      parentRoute: typeof mainprotectedRouteRoute
+    }
+    '/(main)/(protected)/payment/$orderId': {
+      id: '/(main)/(protected)/payment/$orderId'
+      path: '/payment/$orderId'
+      fullPath: '/payment/$orderId'
+      preLoaderRoute: typeof mainprotectedPaymentOrderIdRouteImport
+      parentRoute: typeof mainprotectedRouteRoute
+    }
+    '/(main)/products/$id/': {
+      id: '/(main)/products/$id/'
+      path: '/products/$id'
+      fullPath: '/products/$id/'
+      preLoaderRoute: typeof mainProductsIdIndexRouteImport
+      parentRoute: typeof mainRouteRoute
+    }
+    '/admin/categories/$id/edit': {
+      id: '/admin/categories/$id/edit'
+      path: '/categories/$id/edit'
+      fullPath: '/admin/categories/$id/edit'
+      preLoaderRoute: typeof AdminCategoriesIdEditRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/delivery-partners/$id/edit': {
+      id: '/admin/delivery-partners/$id/edit'
+      path: '/delivery-partners/$id/edit'
+      fullPath: '/admin/delivery-partners/$id/edit'
+      preLoaderRoute: typeof AdminDeliveryPartnersIdEditRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/products/$id/edit': {
+      id: '/admin/products/$id/edit'
+      path: '/products/$id/edit'
+      fullPath: '/admin/products/$id/edit'
+      preLoaderRoute: typeof AdminProductsIdEditRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
   }
 }
 
+interface authRouteRouteChildren {
+  authLoginIndexRoute: typeof authLoginIndexRoute
+  authSignupIndexRoute: typeof authSignupIndexRoute
+}
+
+const authRouteRouteChildren: authRouteRouteChildren = {
+  authLoginIndexRoute: authLoginIndexRoute,
+  authSignupIndexRoute: authSignupIndexRoute,
+}
+
+const authRouteRouteWithChildren = authRouteRoute._addFileChildren(
+  authRouteRouteChildren,
+)
+
+interface mainprotectedRouteRouteChildren {
+  mainprotectedOrderTrackingOrderIdRoute: typeof mainprotectedOrderTrackingOrderIdRoute
+  mainprotectedPaymentOrderIdRoute: typeof mainprotectedPaymentOrderIdRoute
+  mainprotectedAddressesIndexRoute: typeof mainprotectedAddressesIndexRoute
+  mainprotectedCheckoutIndexRoute: typeof mainprotectedCheckoutIndexRoute
+  mainprotectedOrderTrackingIndexRoute: typeof mainprotectedOrderTrackingIndexRoute
+  mainprotectedOrdersIndexRoute: typeof mainprotectedOrdersIndexRoute
+  mainprotectedPaymentResultIndexRoute: typeof mainprotectedPaymentResultIndexRoute
+}
+
+const mainprotectedRouteRouteChildren: mainprotectedRouteRouteChildren = {
+  mainprotectedOrderTrackingOrderIdRoute:
+    mainprotectedOrderTrackingOrderIdRoute,
+  mainprotectedPaymentOrderIdRoute: mainprotectedPaymentOrderIdRoute,
+  mainprotectedAddressesIndexRoute: mainprotectedAddressesIndexRoute,
+  mainprotectedCheckoutIndexRoute: mainprotectedCheckoutIndexRoute,
+  mainprotectedOrderTrackingIndexRoute: mainprotectedOrderTrackingIndexRoute,
+  mainprotectedOrdersIndexRoute: mainprotectedOrdersIndexRoute,
+  mainprotectedPaymentResultIndexRoute: mainprotectedPaymentResultIndexRoute,
+}
+
+const mainprotectedRouteRouteWithChildren =
+  mainprotectedRouteRoute._addFileChildren(mainprotectedRouteRouteChildren)
+
+interface mainRouteRouteChildren {
+  mainprotectedRouteRoute: typeof mainprotectedRouteRouteWithChildren
+  mainIndexRoute: typeof mainIndexRoute
+  mainDealsIndexRoute: typeof mainDealsIndexRoute
+  mainProductsIndexRoute: typeof mainProductsIndexRoute
+  mainSearchResultIndexRoute: typeof mainSearchResultIndexRoute
+  mainProductsIdIndexRoute: typeof mainProductsIdIndexRoute
+}
+
+const mainRouteRouteChildren: mainRouteRouteChildren = {
+  mainprotectedRouteRoute: mainprotectedRouteRouteWithChildren,
+  mainIndexRoute: mainIndexRoute,
+  mainDealsIndexRoute: mainDealsIndexRoute,
+  mainProductsIndexRoute: mainProductsIndexRoute,
+  mainSearchResultIndexRoute: mainSearchResultIndexRoute,
+  mainProductsIdIndexRoute: mainProductsIdIndexRoute,
+}
+
+const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(
+  mainRouteRouteChildren,
+)
+
+interface AdminRouteRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminCategoriesNewRoute: typeof AdminCategoriesNewRoute
+  AdminDeliveryPartnersNewRoute: typeof AdminDeliveryPartnersNewRoute
+  AdminOrdersOrderIdRoute: typeof AdminOrdersOrderIdRoute
+  AdminProductsNewRoute: typeof AdminProductsNewRoute
+  AdminCategoriesIndexRoute: typeof AdminCategoriesIndexRoute
+  AdminDeliveryPartnersIndexRoute: typeof AdminDeliveryPartnersIndexRoute
+  AdminOrdersIndexRoute: typeof AdminOrdersIndexRoute
+  AdminProductsIndexRoute: typeof AdminProductsIndexRoute
+  AdminCategoriesIdEditRoute: typeof AdminCategoriesIdEditRoute
+  AdminDeliveryPartnersIdEditRoute: typeof AdminDeliveryPartnersIdEditRoute
+  AdminProductsIdEditRoute: typeof AdminProductsIdEditRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+  AdminCategoriesNewRoute: AdminCategoriesNewRoute,
+  AdminDeliveryPartnersNewRoute: AdminDeliveryPartnersNewRoute,
+  AdminOrdersOrderIdRoute: AdminOrdersOrderIdRoute,
+  AdminProductsNewRoute: AdminProductsNewRoute,
+  AdminCategoriesIndexRoute: AdminCategoriesIndexRoute,
+  AdminDeliveryPartnersIndexRoute: AdminDeliveryPartnersIndexRoute,
+  AdminOrdersIndexRoute: AdminOrdersIndexRoute,
+  AdminProductsIndexRoute: AdminProductsIndexRoute,
+  AdminCategoriesIdEditRoute: AdminCategoriesIdEditRoute,
+  AdminDeliveryPartnersIdEditRoute: AdminDeliveryPartnersIdEditRoute,
+  AdminProductsIdEditRoute: AdminProductsIdEditRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
+interface DeliveryRouteRouteChildren {
+  DeliveryOrderIdRoute: typeof DeliveryOrderIdRoute
+  DeliveryIndexRoute: typeof DeliveryIndexRoute
+}
+
+const DeliveryRouteRouteChildren: DeliveryRouteRouteChildren = {
+  DeliveryOrderIdRoute: DeliveryOrderIdRoute,
+  DeliveryIndexRoute: DeliveryIndexRoute,
+}
+
+const DeliveryRouteRouteWithChildren = DeliveryRouteRoute._addFileChildren(
+  DeliveryRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  authRouteRoute: authRouteRouteWithChildren,
+  mainRouteRoute: mainRouteRouteWithChildren,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
+  DeliveryRouteRoute: DeliveryRouteRouteWithChildren,
+  ApiUploadthingRoute: ApiUploadthingRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiWebhooksMoyasarRoute: ApiWebhooksMoyasarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
