@@ -1,4 +1,4 @@
-# TanStack Start + shadcn/ui
+# TanStack Start + shadcn/ui 2026
 
 This is a template for a new TanStack Start project with React, TypeScript, and shadcn/ui.
 
