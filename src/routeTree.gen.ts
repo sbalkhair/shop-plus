@@ -235,11 +235,11 @@ const AdminProductsIdEditRoute = AdminProductsIdEditRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof mainIndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
   '/delivery': typeof DeliveryRouteRouteWithChildren
   '/api/uploadthing': typeof ApiUploadthingRoute
   '/delivery/$orderId': typeof DeliveryOrderIdRoute
-  '/': typeof mainIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/delivery/': typeof DeliveryIndexRoute
   '/admin/categories/new': typeof AdminCategoriesNewRoute
@@ -270,9 +270,9 @@ export interface FileRoutesByFullPath {
   '/products/$id/': typeof mainProductsIdIndexRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof mainIndexRoute
   '/api/uploadthing': typeof ApiUploadthingRoute
   '/delivery/$orderId': typeof DeliveryOrderIdRoute
-  '/': typeof mainIndexRoute
   '/admin': typeof AdminIndexRoute
   '/delivery': typeof DeliveryIndexRoute
   '/admin/categories/new': typeof AdminCategoriesNewRoute
@@ -344,11 +344,11 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/admin'
     | '/delivery'
     | '/api/uploadthing'
     | '/delivery/$orderId'
-    | '/'
     | '/admin/'
     | '/delivery/'
     | '/admin/categories/new'
@@ -379,9 +379,9 @@ export interface FileRouteTypes {
     | '/products/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/api/uploadthing'
     | '/delivery/$orderId'
-    | '/'
     | '/admin'
     | '/delivery'
     | '/admin/categories/new'
@@ -465,14 +465,14 @@ declare module '@tanstack/react-router' {
     '/(auth)': {
       id: '/(auth)'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof authRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(main)': {
       id: '/(main)'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof mainRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -500,7 +500,7 @@ declare module '@tanstack/react-router' {
     '/(main)/(protected)': {
       id: '/(main)/(protected)'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof mainprotectedRouteRouteImport
       parentRoute: typeof mainRouteRoute
     }

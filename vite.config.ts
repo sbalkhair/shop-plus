@@ -5,6 +5,7 @@ import { default as viteReact } from "@vitejs/plugin-react"
 import { existsSync, readFileSync } from "node:fs"
 import { resolve } from "node:path"
 import { defineConfig } from "vite"
+import { nitro } from "nitro/vite"
 
 /**
  * Routes that depend on the signed-in user must not be prerendered. Their
@@ -79,6 +80,7 @@ const config = defineConfig({
         },
       },
     }),
+    nitro(),
     viteReact(),
   ],
   ssr: {
