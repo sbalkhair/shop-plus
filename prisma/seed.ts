@@ -325,22 +325,25 @@ async function main() {
     await removeExistingCategories()
   }
 
-  await prisma.$transaction([
-    ...categoryRows.map(({ slug, data }) =>
-      prisma.category.upsert({
-        where: { slug },
-        update: data,
-        create: { slug, ...data },
-      })
-    ),
-    ...productRows.map(({ id, data }) =>
-      prisma.product.upsert({
-        where: { id },
-        update: data,
-        create: { id, ...data },
-      })
-    ),
-  ])
+  await prisma.$transaction(
+    [
+      ...categoryRows.map(({ slug, data }) =>
+        prisma.category.upsert({
+          where: { slug },
+          update: data,
+          create: { slug, ...data },
+        })
+      ),
+      ...productRows.map(({ id, data }) =>
+        prisma.product.upsert({
+          where: { id },
+          update: data,
+          create: { id, ...data },
+        })
+      ),
+    ],
+    { maxWait: 60_000, timeout: 300_000 }
+  )
 
   console.log(
     `Seeded ${categoryRows.length} categories and ${productRows.length} products with images hosted on UploadThing.`
